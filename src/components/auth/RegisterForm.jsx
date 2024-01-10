@@ -57,7 +57,7 @@ const RegisterForm = () => {
             <div className='mt-3'>
               <label
                 className='block mb-2 text-sm font-medium text-gray-900 dark:text-white'
-                for='country-code'
+                htmlFor='country-code'
               >
                 Select your country
               </label>
@@ -68,6 +68,7 @@ const RegisterForm = () => {
                 <option value=''>Select</option>
                 {countryCodes.map((country) => (
                   <option
+                    key={country.code}
                     value={country.dial_code}
                   >{`${country.emoji} (${country.dial_code}) ${country.name}`}</option>
                 ))}
