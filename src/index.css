@@ -5,7 +5,7 @@
 @layer components {
   .container {
     width: calc(100% - 38px);
-    max-width: 1600px;
+    /* max-width: 1600px; */
   }
   .flex0030 {
     flex: 0 0 30%;
@@ -83,7 +83,6 @@
 }
 
 .main-register {
-  height: 600px;
   width: 100%;
   overflow-y: auto;
   overflow-x: hidden;

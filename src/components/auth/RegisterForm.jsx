@@ -29,7 +29,7 @@ const RegisterForm = () => {
 
   return (
     <div className='w-full flex items-center justify-center'>
-      <div className='max-w-lg main-register space-y-8 p-8 dark:bg-dark_bg_2 rounded-xl'>
+      <div className='main-register space-y-8 p-8 dark:bg-dark_bg_2 rounded-xl max-w-7xl'>
         <div className='text-center dark:text-dark_text_1'>
           <h2 className='text-3xl font-bold'>Create Account</h2>
         </div>
@@ -54,18 +54,17 @@ const RegisterForm = () => {
             />
           </div>
           <div className='grid grid-cols-2 gap-4'>
-            <AuthInput
-              name='countryCode'
-              label='Country code'
-              type='number'
-              placeholder='Select your country'
-              register={register}
-              error={errors.phoneNumber?.message}
-            />
-
             <div className='mt-3'>
-              <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for='country-code'>Select your country</label>
-              <select className="border-current border-dark-600 text-gray-100 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-dark_bg_3" name='country-code'>
+              <label
+                className='block mb-2 text-sm font-medium text-gray-900 dark:text-white'
+                for='country-code'
+              >
+                Select your country
+              </label>
+              <select
+                className='border-current border-dark-600 text-gray-100 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-dark_bg_3'
+                name='country-code'
+              >
                 <option value=''>Select</option>
                 {countryCodes.map((country) => (
                   <option
@@ -74,9 +73,7 @@ const RegisterForm = () => {
                 ))}
               </select>
             </div>
-          </div>
-          
-          <div className='grid grid-cols-2 gap-4'>
+
             <AuthInput
               name='phoneNumber'
               label='Phone number'
@@ -85,7 +82,9 @@ const RegisterForm = () => {
               register={register}
               error={errors.phoneNumber?.message}
             />
+          </div>
 
+          <div className='grid grid-cols-2 gap-4'>
             <AuthInput
               name='email'
               label='Email'
@@ -94,18 +93,17 @@ const RegisterForm = () => {
               register={register}
               error={errors.email?.message}
             />
-          </div>
-
-          <div className='grid grid-cols-2 gap-4'>
-            {/* <AuthInput
+            <AuthInput
               name='status'
               label='Status'
               type='text'
               placeholder='Type your status.'
               register={register}
               error={errors.status?.message}
-            /> */}
+            />
+          </div>
 
+          <div className='grid grid-cols-2 gap-4'>
             <AuthInput
               name='password'
               label='Password'
@@ -123,7 +121,6 @@ const RegisterForm = () => {
               error={errors.password?.message}
             />
           </div>
-
 
           <button
             type='submit'
