@@ -29,7 +29,7 @@ const RegisterForm = () => {
 
   return (
     <div className='w-full flex items-center justify-center'>
-      <div className='main-register space-y-8 p-8 dark:bg-dark_bg_2 rounded-xl max-w-7xl'>
+      <div className='main-register space-y-8 p-8 dark:bg-dark_bg_2 rounded-xl max-w-lg'>
         <div className='text-center dark:text-dark_text_1'>
           <h2 className='text-3xl font-bold'>Create Account</h2>
         </div>
