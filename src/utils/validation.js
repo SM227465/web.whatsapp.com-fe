@@ -15,7 +15,10 @@ export const registerSchema = yup.object({
     .min(2, 'The last name should not be less than 2 characters.')
     .max(16, 'The last name should not be more than 16 characters.'),
 
-  countryCode: yup.string().required('Please select your country'),
+  countryCode: yup
+    .string()
+    .required('Please select your country')
+    .test('not-empty', 'Country code should not be empty', (value) => value.trim() !== ''),
 
   phoneNumber: yup
     .string()
