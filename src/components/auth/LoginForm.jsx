@@ -3,10 +3,15 @@ import AuthInput from './AuthInput';
 import { useForm } from 'react-hook-form';
 import { signInSchema } from '../../utils/validation';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link, useNavigate } from 'react-router-dom';
+import { loginUser } from '../../features/userSlice';
+import { PulseLoader } from 'react-spinners';
+import Cookies from 'universal-cookie';
 
 const LoginForm = () => {
+  const dispatch = useDispatch();
+  const navigator = useNavigate();
   const { status, error } = useSelector((state) => state.user);
   const {
     register,
@@ -18,6 +23,17 @@ const LoginForm = () => {
 
   const onSubmit = async (values) => {
     console.log(values);
+
+    const res = await dispatch(loginUser(values));
+
+    if (res?.payload?.success) {
+      const cookies = new Cookies();
+      cookies.set('accessToken', res.payload.token.access);
+      cookies.set('refreshToken', res.payload.token.refresh);
+      navigator('/', { replace: true });
+    }
+
+    console.log('Login', res);
   };
 
   return (
